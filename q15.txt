@@ -1,0 +1,3 @@
+SELECT firstname, lastname 
+FROM worker 
+WHERE NOT EXISTS (SELECT w.empid from worker w, assign a where w.empid = a.empid );
