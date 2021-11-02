@@ -1,0 +1,8 @@
+SELECT w.firstname, w.lastname, p.projno, a.rating
+FROM worker w , assign a , project p
+WHERE p.projno = a.projno AND w.empid = a.empid
+AND w.empid IN
+(SELECT a.empid FROM assign WHERE a.projno IN 
+(SELECT projno FROM project WHERE projmgrid = (SELECT empid FROM worker WHERE firstname = 'Michael' AND lastname = 'Burns')))
+GROUP BY w.firstname, w.lastname, a.rating, p.projno
+ORDER BY w.firstname ASC;
