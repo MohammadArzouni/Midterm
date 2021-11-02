@@ -1,0 +1,3 @@
+SELECT w.firstname, w.lastname, d.departmentname, w.salary
+FROM worker w NATURAL JOIN dept d 
+WHERE salary = (SELECT min(salary) from worker where departmentid = (Select departmentid from dept where departmentname = 'Research'));
