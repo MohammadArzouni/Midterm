@@ -1,0 +1,3 @@
+select w.LASTNAME, w.FIRSTNAME, d.DEPARTMENTNAME
+FROM DEPT d NATURAL JOIN WORKER w 
+where d.departmentname ='Accounting';
