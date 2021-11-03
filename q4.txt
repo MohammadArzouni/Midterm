@@ -1,0 +1,4 @@
+SELECT w.lastname, w.firstname, a.projno 
+FROM worker w NATURAL JOIN assign a
+WHERE a.projno = '1001'
+ORDER BY lastname asc;
