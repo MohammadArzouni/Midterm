@@ -1,0 +1,31 @@
+create or replace trigger AddNoEmployees
+AFTER INSERT ON assign
+REFERENCING new as new
+for each row
+begin 
+update project 
+ set numemployeesassigned = numemployeesassigned + 1
+ where project.projno = :new.projno;
+end;
+
+create or replace trigger DeleteNoEmployees
+AFTER DELETE ON assign
+REFERENCING old as old
+for each row
+begin 
+update project 
+ set numemployeesassigned = numemployeesassigned - 1
+ where project.projno = :old.projno;
+end;
+
+create or replace trigger UpdateTheNoEmployees
+AFTER UPDATE OF projno ON assign
+for each row
+begin 
+update project 
+ set numemployeesassigned = numemployeesassigned - 1
+ where project.projno = :old.projno;
+ update project
+ set numemployeesassigned = numemployeesassigned + 1
+ where project.projno = :new.projno;
+end;
