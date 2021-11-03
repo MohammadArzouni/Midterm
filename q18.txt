@@ -1,0 +1,3 @@
+select empid, projno FROM assign 
+where rating is null;
+
