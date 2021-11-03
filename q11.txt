@@ -1,0 +1,14 @@
+INSERT INTO worker (empid, lastname, firstname, departmentid)
+VALUES (120, 'Ioakeimidou', 'Danai', 2);
+
+INSERT INTO worker (empid, lastname, firstname, departmentid)
+VALUES (123, 'Mohammad', 'Arzouni', 2);
+
+INSERT INTO assign (projno, empid, hoursassigned)
+VALUES (1001, 123, 9);
+INSERT INTO assign (projno, empid, hoursassigned)
+VALUES (1033, 120, 5);
+INSERT INTO assign (projno, empid, hoursassigned)
+VALUES (1033, 123, 9); 
+INSERT INTO assign (projno, empid, hoursassigned)
+VALUES (1001, 120, 5);
