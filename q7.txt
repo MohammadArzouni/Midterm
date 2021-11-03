@@ -1,0 +1,3 @@
+SELECT w.firstname, w.lastname, d.departmentname, a.projno
+FROM (worker w NATURAL JOIN dept d) NATURAL JOIN assign a
+WHERE a.projno = '1019';
