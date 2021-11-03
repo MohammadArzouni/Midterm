@@ -1,0 +1,6 @@
+ALTER TABLE project
+ADD numEmployeesAssigned INTEGER;
+
+update project 
+ set numemployeesassigned = 
+ (select COUNT(*)FROM assign where assign.projno = project.projno);
