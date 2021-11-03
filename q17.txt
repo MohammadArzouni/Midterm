@@ -1,0 +1,17 @@
+ALTER TABLE Project 
+ADD Status varchar (20);
+
+update project
+SET status = 'ACTIVE';
+
+update project
+SET status = 'CANCELLED' WHERE projno = '1001';
+
+update project
+set status = 'COMPLETED' WHERE projno = '1030';
+
+update project
+SET status = 'PLANNED' WHERE projno = '1005' OR projno = '1032';
+
+SELECT * FROM PROJECT
+WHERE STATUS = 'ACTIVE';
