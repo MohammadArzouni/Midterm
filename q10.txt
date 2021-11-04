@@ -1,0 +1,3 @@
+SELECT projno, projname
+FROM PROJECT_EMPLOYEES
+WHERE empid='101';
