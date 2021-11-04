@@ -1,4 +1,4 @@
-SELECT w.lastname, w.firstname, a.projno 
+SELECT w.firstname, w.lastname, a.projno 
 FROM worker w NATURAL JOIN assign a
 WHERE a.projno = '1001'
-ORDER BY lastname asc;
+ORDER BY firstname, lastname asc;
