@@ -1,2 +1,2 @@
-SELECT * FROM PROJECT
-WHERE PROJNAME LIKE '%urn%';
+SELECT empid, firstname, lastname, round(salary/12, 0) as MONTHLY_SALARY
+FROM WORKER;
