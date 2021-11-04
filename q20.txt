@@ -1,31 +1,31 @@
-create or replace trigger AddNoEmployees
+CREATE or REPLACE TRIGGER AddNoEmployees
 AFTER INSERT ON assign
 REFERENCING new as new
 for each row
 begin 
-update project 
- set numemployeesassigned = numemployeesassigned + 1
- where project.projno = :new.projno;
+UPDATE project 
+ SET numemployeesassigned = numemployeesassigned + 1
+ WHERE project.projno = :new.projno;
 end;
 
-create or replace trigger DeleteNoEmployees
+CREATE or REPLACE TRIGGER DeleteNoEmployees
 AFTER DELETE ON assign
 REFERENCING old as old
 for each row
 begin 
-update project 
- set numemployeesassigned = numemployeesassigned - 1
- where project.projno = :old.projno;
+UPDATE project 
+ SET numemployeesassigned = numemployeesassigned - 1
+ WHERE project.projno = :old.projno;
 end;
 
-create or replace trigger UpdateTheNoEmployees
+CREATE or REPLACE TRIGGER UpdateTheNoEmployees
 AFTER UPDATE OF projno ON assign
 for each row
 begin 
-update project 
- set numemployeesassigned = numemployeesassigned - 1
- where project.projno = :old.projno;
- update project
- set numemployeesassigned = numemployeesassigned + 1
- where project.projno = :new.projno;
+UPDATE project 
+ SET numemployeesassigned = numemployeesassigned - 1
+ WHERE project.projno = :old.projno;
+ UPDATE project
+ SET numemployeesassigned = numemployeesassigned + 1
+ WHERE project.projno = :new.projno;
 end;
